@@ -1,5 +1,5 @@
 set_xmakever('2.9.2')
-set_policy("check.auto_ignore_flags", false)
+set_policy("check.auto_ignore_flags", true)
 add_rules('mode.release', 'mode.debug')
 set_toolchains("ldc")
 set_policy('build.ccache', not is_plat('windows'))

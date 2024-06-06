@@ -14,9 +14,11 @@ extern (C) BOOL FreeLibrary(HMODULE);
 class DynamicModule
 {
     HINSTANCE handle;
+    private bool never_unload;
 
-    this(string path)
+    this(string path, bool never_unload = false)
     {
+        this.never_unload = never_unload;
         if (!std.path.isAbsolute(path))
         {
             path = std.path.absolutePath(path);
@@ -36,7 +38,8 @@ class DynamicModule
 
     ~this()
     {
-        FreeLibrary(handle);
+        if (!never_unload)
+            FreeLibrary(handle);
     }
 
     void get_func(T)(T* t, string name)

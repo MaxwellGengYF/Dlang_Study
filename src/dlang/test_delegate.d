@@ -15,5 +15,5 @@ void test_delegate(int outside_value)
     writeln(get_value_delegate(2, 3));
     // Lambda
     get_value_delegate = (int a, int b) { return outside_value + a + b; };
-    writeln(get_value_delegate(2, 3));
+    writeln(get_value_delegate(4, 6));
 }

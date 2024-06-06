@@ -3,6 +3,10 @@ import std;
 
 struct Vector3
 {
+    static Vector3 zero = Vector3(0,0,0);
+    static Vector3 get_zero() {
+        return zero;
+    }
     float x, y, z;
     // default constructor not allowed because it is a POD type.
     // this(){
